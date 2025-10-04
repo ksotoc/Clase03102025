@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><a href="{{ url_for('clientes_lista') }}">Version con json</a></p>
+    <!-- Lista de clientes -->
+    <ul>
+        {% for cliente in clientes %}
+            <li>
+                ID: {{ cliente[0] }} | 
+                Nombre: {{ cliente[1] }} |
+                Email: {{ cliente[2] }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Tabla clientes -->
+    <table borde="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>EMAIL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td> {{ cliente[0] }} </td>
+                    <td> {{ cliente[1] }} </td>
+                    <td> {{ cliente[2] }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

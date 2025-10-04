@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><a href="{{ url_for('lista_clientes') }}">Version con array</a></p>
+
+    <p>Total: {{ total }}</p>
+    <!-- Lista de clientes -->
+    <ul>
+        {% for cliente in clientes %}
+            <li>
+                ID: {{ cliente.id_cliente }} | 
+                Nombre: {{ cliente.nombre }} |
+                Email: {{ cliente.email }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Tabla clientes -->
+    <table borde="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>EMAIL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td> {{ cliente.id_cliente }} </td>
+                    <td> {{ cliente.nombre }} </td>
+                    <td> {{ cliente.email }} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
